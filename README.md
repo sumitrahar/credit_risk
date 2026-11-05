@@ -74,7 +74,7 @@ Questions the catalogue cannot answer are declined: loss given default, forecast
 `python -m tests.live_assistant_eval` tests this against the real API with a key: 31 answerable questions compared with direct calculations, and 17 unanswerable questions that must be declined. Normal `pytest` runs use a fake LLM and never call the API.
 
 <!-- LIVE_TEST:START -->
-Not run yet.
+Latest live test, with gemini-3.1-flash-lite as the main model: **31 of 31** answerable questions matched a direct calculation, **17 of 17** unanswerable questions were declined, and the number check replaced the wording of 0 answers. Full results are in `data/processed/assistant_eval.json`.
 <!-- LIVE_TEST:END -->
 
 **What is sent to Google:** the question text, the catalogue, and the computed result (aggregates, or one account's score, band, drivers and flags). Customer IDs and raw tables are never sent. The free tier may use content to improve Google's products, which is acceptable for synthetic data only. Production would need a paid or enterprise tier.
