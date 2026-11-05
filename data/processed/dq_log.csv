@@ -1,0 +1,33 @@
+table,column,issue,rows_affected,decision,in_dictionary
+customers,gender,Gender coded as M/F instead of Male/Female,600,Mapped to Male/Female. Gender is kept for profiling only and is not a model input.,True
+customers,years_employed,Years employed exceeds age minus 16,726,Capped at age minus 16 and flagged in years_employed_capped.,False
+customers,years_at_residence,Years at residence exceeds age,5,Capped at age.,False
+customers,years_employed,Missing values with no visible pattern,500,"Unemployed customers set to 0, matching every known value. Others use the median for their employment type, with a missing flag.",True
+customers,num_dependents,Missing values with no visible pattern,500,"Median for the customer's employment type, with a missing flag.",True
+customers,years_at_residence,Missing values with no visible pattern,500,"Median for the customer's employment type, with a missing flag.",True
+customers,occupation_sector,Unemployed customers still have a sector,494,Kept and read as the customer's last sector.,False
+customers,age,Values clipped at a floor of 21,694,Left as provided and noted; the true value is unknown.,False
+customers,annual_income,"Values clipped at a floor of 12,000",76,Left as provided and noted; the true value is unknown.,False
+repayment_history,payment_month,"Every account has exactly 12 months, whatever its term (12 to 360 months), and months have no calendar date",14685,Treated as a fixed 12-month behaviour window after origination.,False
+repayment_history,outstanding_balance,"Balance falls by exactly 60% of each payment regardless of the interest rate, so 12-month loans still show a median 37% balance at month 12",2538,"Not corrected. Latest balance is shown as approximate, next to the originated amount, and is not a model input.",False
+repayment_history,days_past_due,"Days past due does not accumulate: 80% of months following a missed payment return to 0, and the highest value is 89, so no account reaches 90+",8204,Used as reported. It also means target_default cannot be derived from this table.,False
+loan_accounts,interest_rate_pct,Missing interest rate,294,"Recovered exactly, not imputed: the installment follows the standard loan payment formula, so the rate can be solved from it. Tested on 14,391 known rates, the largest error was 0.011 percentage points.",True
+customers,customer_since,Loan originated before the customer relationship began,7293,"Field treated as unreliable: kept for display, but no tenure-with-bank feature is built from it.",False
+loan_accounts,loan_purpose,"Purpose is unrelated to loan type (for example Mortgage for Wedding), and default rate is flat across purposes (14.9% to 16.9%)",14685,Kept for display only; not a model input.,False
+loan_accounts,disbursal_channel,"Dictionary says Partner-DSA, but the data says Partner/DSA",3680,Used the label as it appears in the data.,False
+loan_accounts,loan_amount,"Values clipped at a floor of 1,000",292,Left as provided and noted.,False
+loan_accounts,target_default,"The target has no date and does not follow from repayment: 1,105 of 2,364 defaulted accounts (46.7%) never missed a payment, and 174 were on time in all 12 months",1105,"Assumed that default is observed after month 12, which makes the model a month-12 behaviour score. Sensitivity with 3 and 6 months of history is reported.",False
+bureau_credit,days_past_due,Missing days past due on Closed lines,260,"Set to 0, matching every known value on Closed lines.",True
+bureau_credit,days_past_due,Missing days past due on Active or Written-Off lines,429,Left missing and flagged; averages and maximums ignore these rows. The model fills the gap with a median and also reads an explicit 'unknown' flag.,True
+bureau_credit,date_closed,Null date_closed,11243,"These are exactly the Active lines, so the null is expected. Left as is.",True
+bureau_credit,date_closed,"Closure dated after the assumed 2025-12-31 snapshot, as late as 2029-12-24",3149,Flagged and the date is not trusted. The point-in-time rule treats these lines as still open.,False
+bureau_credit,date_opened,"Look-ahead risk: for 62.5% of line-and-loan pairs, the bureau line opened after that loan's origination",21104,"Model features use only lines opened by origination + 12 months, and lines closed or written off after that date are rewound to Active with unknown balance.",False
+bureau_credit,account_status,"Status, balance and days past due on Active lines are as at last reporting, with no reporting date",11243,"Used as reported. This look-ahead cannot be removed with the data provided, and is listed as an assumption.",False
+bureau_credit,sanctioned_amount,Values clipped at a floor of 500,2219,Left as provided and noted.,False
+customers,customer_id,Customer has no bureau record at all,1008,"Left join with a thin_file flag; not filled with zeros, because no record is different from a clean record.",False
+collections_events,event_date,Collections event dated before the loan was originated,3875,"Flagged and shown in the account view. Collections are never model inputs, because they are a consequence of delinquency rather than a predictor of it.",False
+collections_events,outcome,'Payment Received' with $0 recovered,1287,Reported as provided and noted.,False
+collections_events,amount_recovered,Money recovered on an outcome that implies no payment,1313,Reported as provided and noted.,False
+collections_events,action_type,'Written-Off Referral' on a non-defaulted account,1159,Reported as provided and noted.,False
+collections_events,amount_recovered,Total recovered exceeds the loan amount,103,Reported as provided and noted.,False
+collections_events,action_type,"Dictionary says SMS-Email, but the data says SMS/Email Notice",1423,Used the label as it appears in the data.,False

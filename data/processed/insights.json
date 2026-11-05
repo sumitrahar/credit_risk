@@ -1,0 +1,37 @@
+[
+ {
+  "id": "mortgage_concentration",
+  "title": "Mortgages are the concentration risk",
+  "top3": true,
+  "finding": "Mortgages are 9.8% of accounts but 52.3% of originated exposure and 65.0% of defaulted dollars. Their 24.7% default rate is the highest of any product (others: 13.9% to 16.2%) even though they are secured, and 240-month mortgages reach 29.2%.",
+  "so_what": "Review mortgages first and tighten long-term underwriting. Collateral values are needed from the bank, because the actual loss cannot be sized without them."
+ },
+ {
+  "id": "income_employment",
+  "title": "Income and employment together separate risk",
+  "top3": true,
+  "finding": "Default falls from 32.4% under $40k to 9.5% at $100k+. Unemployed borrowers are 4.9% of accounts but 10.6% of defaults. Unemployed mortgages default at 54.3% (70 accounts, $15.6M). Contract borrowers run 35.1% under $40k but 12.8% at $60-80k.",
+  "so_what": "Apply a hard policy rule to mortgages for unemployed applicants, and assess contract workers by income rather than treating them as one group."
+ },
+ {
+  "id": "pricing",
+  "title": "Pricing does not reflect income risk",
+  "top3": false,
+  "finding": "The average interest rate is 11.8% to 12.0% in every income band, while default rate runs from 9.5% to 32.4%. Within personal loans, rate and income are uncorrelated (r = -0.02).",
+  "so_what": "The strongest risk driver in the portfolio is not priced in, so low-income borrowers are under-charged for their risk. A risk-based pricing review is worth testing."
+ },
+ {
+  "id": "alerts_collections",
+  "title": "Delinquency alerts miss nearly half of defaults, and collections are not targeted",
+  "top3": true,
+  "finding": "46.7% of defaulters never missed a payment in 12 months. Only 38.0% of defaulted accounts had any collections action, while 3,380 non-defaulted accounts did. Recoveries equal 0.99% of defaulted loan amounts.",
+  "so_what": "Prioritise collections by model score rather than by missed payments alone, and audit the collections data first: 44.9% of events are dated before the loan began."
+ },
+ {
+  "id": "region_age",
+  "title": "Region is not a useful lever; age is, with a caveat",
+  "top3": false,
+  "finding": "Regions span only 15.0% to 16.9% (channel 15.4%-16.9%, purpose 14.9%-16.9%, sector 15.0%-17.0%). Age falls from 22.2% at 21-25 to 10.6% at 56+, and the gradient holds within every product.",
+  "so_what": "Drop region-based risk strategy. Age predicts default but raises fair-lending concerns, so it needs compliance review before any use in decisions."
+ }
+]

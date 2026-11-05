@@ -1,0 +1,87 @@
+{
+ "accounts_flagged": 313,
+ "share_flagged": 0.02131426625808648,
+ "min_detectors_for_review": 2,
+ "flagged_default_rate": 0.329073482428115,
+ "unflagged_default_rate": 0.1573197884775953,
+ "base_default_rate": 0.1609805924412666,
+ "lift": 2.044181086910689,
+ "defaults_in_list": 103,
+ "share_of_defaults_in_list": 0.043570219966159056,
+ "accounts_any_detector": 1175,
+ "detectors": [
+  {
+   "detector": "consecutive_missed",
+   "name": "Consecutive missed payments",
+   "compared_with": "Own history",
+   "rule": "2+ missed payments in a row",
+   "accounts": 410,
+   "in_review_list": 236,
+   "default_rate": 0.3048780487804878,
+   "lift": 1.8938807725640707
+  },
+  {
+   "detector": "dpd_jump",
+   "name": "Sudden deterioration",
+   "compared_with": "Own history",
+   "rule": "Rise in average days past due, second half vs first, is in the top 1% of accounts",
+   "accounts": 147,
+   "in_review_list": 89,
+   "default_rate": 0.2653061224489796,
+   "lift": 1.6480627784108568
+  },
+  {
+   "detector": "late_shock",
+   "name": "Clean record, then a miss",
+   "compared_with": "Own history",
+   "rule": "No days past due for 9 months, then a missed payment in the last 3",
+   "accounts": 355,
+   "in_review_list": 24,
+   "default_rate": 0.15774647887323945,
+   "lift": 0.9799099163508973
+  },
+  {
+   "detector": "peer_dpd",
+   "name": "Far behind peers",
+   "compared_with": "Peer segment",
+   "rule": "Average days past due is 3.5+ robust standard deviations above the same loan type and employment type",
+   "accounts": 235,
+   "in_review_list": 138,
+   "default_rate": 0.30638297872340425,
+   "lift": 1.9032292904201316
+  },
+  {
+   "detector": "peer_bureau_debt",
+   "name": "High bureau debt for income band",
+   "compared_with": "Peer segment",
+   "rule": "Bureau debt-to-income is above the 99th percentile of the same income band",
+   "accounts": 134,
+   "in_review_list": 22,
+   "default_rate": 0.1417910447761194,
+   "lift": 0.880795893628305
+  },
+  {
+   "detector": "bureau_writeoffs",
+   "name": "Multiple bureau write-offs",
+   "compared_with": "Bureau history",
+   "rule": "3+ written-off lines at other lenders",
+   "accounts": 102,
+   "in_review_list": 37,
+   "default_rate": 0.3137254901960784,
+   "lift": 1.9488404498855378
+  },
+  {
+   "detector": "isolation_forest",
+   "name": "Unusual overall pattern",
+   "compared_with": "Whole portfolio",
+   "rule": "Isolation Forest places the account in the most unusual 2% across all signals",
+   "accounts": 294,
+   "in_review_list": 269,
+   "default_rate": 0.3673469387755102,
+   "lift": 2.2819330777996476
+  }
+ ],
+ "thresholds": {
+  "dpd_jump_days": 21.359999999999978
+ }
+}
