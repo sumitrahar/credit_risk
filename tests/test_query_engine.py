@@ -64,6 +64,12 @@ def test_shares_use_the_whole_portfolio_as_the_denominator(portfolio):
     assert result.rows[0]["value"] == pytest.approx(mortgage["loan_amount"].sum() / portfolio["loan_amount"].sum() * 100)
 
 
+def test_recovery_rate_reports_the_defaulted_accounts_it_covers(portfolio):
+    result = run_query(QuerySpec(metric="recovery_rate_on_defaults_pct"), portfolio)
+    assert result.rows[0]["accounts"] == portfolio["target_default"].sum()
+    assert result.payload["rows"][0]["accounts"] == f"{int(portfolio['target_default'].sum()):,}"
+
+
 def test_order_and_limit(portfolio):
     result = run_query(QuerySpec(metric="default_rate_pct", group_by=["region"], order="asc", limit=1), portfolio)
     expected = portfolio.groupby("region")["target_default"].mean().idxmin()

@@ -181,18 +181,14 @@ def render(context: dict) -> None:
             with st.spinner("Working it out from the data..."):
                 _ask(question, portfolio)
 
-        st.markdown('<p class="eyebrow">Try one</p>', unsafe_allow_html=True)
-        columns = st.columns(len(SAMPLE_QUESTIONS))
-        for column, sample in zip(columns, SAMPLE_QUESTIONS):
-            if column.button(sample, key=f"sample_{sample}", width="stretch"):
-                with st.spinner("Working it out from the data..."):
-                    _ask(sample, portfolio)
-        st.markdown('<p class="eyebrow">Questions it should decline</p>', unsafe_allow_html=True)
-        columns = st.columns(len(SAMPLE_QUESTIONS))
-        for column, sample in zip(columns, DECLINE_EXAMPLES):
-            if column.button(sample, key=f"decline_{sample}", width="stretch"):
-                with st.spinner("Working it out from the data..."):
-                    _ask(sample, portfolio)
+        # Two columns, so the full question stays readable on each button.
+        for heading, samples in (("Try one", SAMPLE_QUESTIONS), ("Questions it should decline", DECLINE_EXAMPLES)):
+            st.markdown(f'<p class="eyebrow">{heading}</p>', unsafe_allow_html=True)
+            columns = st.columns(2)
+            for position, sample in enumerate(samples):
+                if columns[position % 2].button(sample, key=f"sample_{sample}", width="stretch"):
+                    with st.spinner("Working it out from the data..."):
+                        _ask(sample, portfolio)
 
         for asked, answer in st.session_state.get("ask_history", []):
             _show_answer(asked, answer)

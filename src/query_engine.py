@@ -217,7 +217,8 @@ def run_query(spec: QuerySpec, portfolio: pd.DataFrame) -> QueryResult:
     def row_for(group: pd.DataFrame, labels: dict) -> dict:
         row = dict(labels)
         row["value"] = float(metric.compute(group, portfolio))
-        row["accounts"] = int(len(group))
+        # A recovery rate only covers defaulted accounts, so that is the count to show with it.
+        row["accounts"] = int(group["target_default"].sum()) if spec.metric == "recovery_rate_on_defaults_pct" else int(len(group))
         if spec.metric == "default_rate_pct":
             row["defaults"] = int(group["target_default"].sum())
         row["low_sample"] = len(group) < MIN_SEGMENT_ACCOUNTS
@@ -251,7 +252,6 @@ def run_query(spec: QuerySpec, portfolio: pd.DataFrame) -> QueryResult:
         "metric": metric.label,
         "metric_definition": metric.description,
         "scope": result.scope_text,
-        "accounts_in_scope": f"{result.scope_accounts:,}",
         "order": spec.order if spec.group_by else None,
         "rows": [
             {

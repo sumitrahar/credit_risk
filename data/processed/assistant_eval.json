@@ -1,7 +1,8 @@
 {
  "model": "gemini-3.1-flash-lite",
  "models_used": [
-  "gemini-3.1-flash-lite"
+  "gemini-3.1-flash-lite",
+  "gemini-3.5-flash-lite"
  ],
  "answerable_total": 31,
  "answerable_correct": 31,
@@ -17,7 +18,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The Mortgage loan type has the highest default rate at 24.65%.",
+   "answer": "The Mortgage loan type has the highest default rate at 24.65%. This result is based on 1,432 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "default_rate_pct",
@@ -38,7 +39,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The overall default rate for the whole portfolio is 16.10%. This is measured across 14,685 accounts.",
+   "answer": "The overall default rate for the whole portfolio is 16.10%. This result is derived from 2,364 defaulted accounts out of 14,685 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "default_rate_pct",
@@ -75,8 +76,8 @@
    "passed": true,
    "status": "answered",
    "written_by": "llm",
-   "model": "gemini-3.1-flash-lite",
-   "answer": "The number of customers in the whole portfolio is 10,000. There are 14,685 accounts in scope.",
+   "model": "gemini-3.5-flash-lite",
+   "answer": "The number of customers is 10,000 across the whole portfolio, corresponding to 14,685 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "customers",
@@ -95,7 +96,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The total originated amount for the 14,685 accounts in the portfolio is $601.1M.",
+   "answer": "The total originated exposure for the 14,685 accounts is $601.1M.",
    "query": {
     "function": "query_portfolio",
     "metric": "originated_amount",
@@ -114,7 +115,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The default rate for unemployed borrowers is 34.96% across 718 accounts.",
+   "answer": "The default rate for unemployed accounts is 34.96%. This result is based on 718 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "default_rate_pct",
@@ -139,8 +140,8 @@
    "passed": true,
    "status": "answered",
    "written_by": "llm",
-   "model": "gemini-3.1-flash-lite",
-   "answer": "The Central region has the lowest default rate at 15.00%. This result is across 2,314 accounts.",
+   "model": "gemini-3.5-flash-lite",
+   "answer": "The default rate, defined as defaulted accounts divided by accounts, is lowest in the Central region at 15.00%, across 2,314 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "default_rate_pct",
@@ -161,7 +162,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The default rate for the <$40k income band is 32.44%, for the $40-60k band is 22.31%, and for the $60-80k band is 16.64%. The default rate for the $80-100k income band is 13.30%, while the $100k+ income band is 9.52%.",
+   "answer": "The default rate for the <$40k income band is 32.44% across 934 accounts, while the $40-60k band shows a 22.31% rate across 2,281 accounts. The $60-80k band has a 16.64% default rate across 4,290 accounts, the $80-100k band is 13.30% across 4,082 accounts, and the $100k+ band is 9.52% across 3,098 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "default_rate_pct",
@@ -181,8 +182,8 @@
    "passed": true,
    "status": "answered",
    "written_by": "llm",
-   "model": "gemini-3.1-flash-lite",
-   "answer": "The share of all defaulted dollars from mortgages is 65.05%. This figure is derived from 1,432 accounts.",
+   "model": "gemini-3.5-flash-lite",
+   "answer": "The share of all defaulted dollars for mortgages is 65.05%, measured across 1,432 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "share_of_defaulted_amount_pct",
@@ -208,7 +209,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The share of all originated exposure for mortgages is 52.31%. This figure is derived from 1,432 accounts.",
+   "answer": "The share of all originated exposure for mortgages is 52.31%, representing 1,432 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "share_of_originated_pct",
@@ -260,7 +261,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The average interest rate for the 3,721 credit card accounts is 19.52%.",
+   "answer": "The average interest rate for credit cards is 19.52% across 3,721 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "avg_interest_rate_pct",
@@ -286,7 +287,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The average loan amount is $219,605 for Mortgage, $66,723 for Business Loan, $27,823 for Auto Loan, $15,110 for Personal Loan, and $8,067 for Credit Card. These figures represent 14,685 accounts across the whole portfolio.",
+   "answer": "The average loan amount is $219,605 for 1,432 Mortgage accounts, $66,723 for 1,484 Business Loan accounts, and $27,823 for 2,832 Auto Loan accounts. For Personal Loan accounts, the average loan amount is $15,110 across 5,216 accounts, while Credit Card accounts have an average loan amount of $8,067 across 3,721 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "avg_loan_amount",
@@ -307,7 +308,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "For mortgages, the default rate is 54.29% for Unemployed, 27.21% for Contract, 23.57% for Salaried, 23.12% for Business Owner, and 20.20% for Self-Employed. These results are across 1,432 accounts.",
+   "answer": "For mortgages, the default rate is 54.29% for 70 unemployed accounts, 27.21% for 136 contract accounts, and 23.57% for 751 salaried accounts. The default rate is 23.12% for 173 business owner accounts and 20.20% for 302 self-employed accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "default_rate_pct",
@@ -335,7 +336,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The age band with the highest default rate is 21-25, which has a value of 22.16%.",
+   "answer": "The age band with the highest default rate is 21-25, which has a default rate of 22.16% across 1,927 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "default_rate_pct",
@@ -356,7 +357,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The total amount recovered through collections across 14,685 accounts is $5.7M.",
+   "answer": "The total amount recovered through collections is $5.7M across 14,685 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "amount_recovered",
@@ -375,7 +376,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The recovery rate on defaulted loans for the whole portfolio is 0.99% across 14,685 accounts.",
+   "answer": "The recovery rate on defaulted loans is 0.99% across 2,364 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "recovery_rate_on_defaults_pct",
@@ -419,8 +420,8 @@
    "passed": true,
    "status": "answered",
    "written_by": "llm",
-   "model": "gemini-3.1-flash-lite",
-   "answer": "The default rate is 43.13% for the Very High risk band, 25.71% for the High risk band, 13.98% for the Medium risk band, and 8.12% for the Low risk band. These figures represent 14,685 accounts across the whole portfolio.",
+   "model": "gemini-3.5-flash-lite",
+   "answer": "The default rate for the Very High risk band is 43.13% across 721 accounts, for the High risk band it is 25.71% across 2,839 accounts, for the Medium risk band it is 13.98% across 7,160 accounts, and for the Low risk band it is 8.12% across 3,965 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "default_rate_pct",
@@ -467,7 +468,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The default rate for Mortgage loans is 27.30% in the South, 25.49% in the West, 25.34% in the North, 22.27% in the East, and 21.31% in the Central region. For other loan types, the default rate ranges from 19.11% for Business Loans in the Central region down to 14.94% for Business Loans in the North. These figures represent 14,685 accounts in scope.",
+   "answer": "The default rate for Mortgage loans is 27.30% in the South (381 accounts), 25.49% in the West (255 accounts), 25.34% in the North (296 accounts), 22.27% in the East (256 accounts), and 21.31% in the Central region (244 accounts). Business Loan default rates are 19.11% in Central (246 accounts), 16.03% in East (262 accounts), 15.65% in West (262 accounts), 15.28% in South (386 accounts), and 14.94% in North (328 accounts). Credit Card and Personal Loan default rates range from 15.29% to 17.77% and 15.24% to 16.18% respectively, while Auto Loan default rates are 15.37% in the East (553 accounts) and 15.03% in the South (692 accounts).",
    "query": {
     "function": "query_portfolio",
     "metric": "default_rate_pct",
@@ -489,7 +490,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "There are 1,008 customers with no bureau record. This figure represents 1,462 accounts.",
+   "answer": "There are 1,008 customers with no bureau record, representing 1,462 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "customers",
@@ -514,8 +515,8 @@
    "passed": true,
    "status": "answered",
    "written_by": "llm",
-   "model": "gemini-3.1-flash-lite",
-   "answer": "The missed payment rate for personal loans is 4.36% across 5,216 accounts.",
+   "model": "gemini-3.5-flash-lite",
+   "answer": "The missed payment rate on personal loans, defined as missed months as a percentage of all repayment months, is 4.36% across 5,216 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "missed_payment_rate_pct",
@@ -541,7 +542,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The latest balance for the 2,364 defaulted accounts is $111.7M.",
+   "answer": "The latest balance on 2,364 defaulted accounts is $111.7M.",
    "query": {
     "function": "query_portfolio",
     "metric": "latest_balance",
@@ -566,8 +567,8 @@
    "passed": true,
    "status": "answered",
    "written_by": "llm",
-   "model": "gemini-3.1-flash-lite",
-   "answer": "The employment type with the highest average predicted probability of default is Unemployed, with a value of 34.60% across 718 accounts.",
+   "model": "gemini-3.5-flash-lite",
+   "answer": "Unemployed accounts have the highest average predicted probability of default at 34.60%, across a group of 718 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "avg_predicted_pd_pct",
@@ -587,8 +588,8 @@
    "passed": true,
    "status": "answered",
    "written_by": "llm",
-   "model": "gemini-3.1-flash-lite",
-   "answer": "The income band with the highest default rate is <$40k, which has a value of 32.44%.",
+   "model": "gemini-3.5-flash-lite",
+   "answer": "The default rate for the whole portfolio is 32.44% for the income band <$40k, covering 934 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "default_rate_pct",
@@ -597,7 +598,7 @@
     ],
     "filters": [],
     "order": "desc",
-    "limit": null
+    "limit": 1
    },
    "detail": "",
    "notes": []
@@ -609,7 +610,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The originated amount for self-employed borrowers is $123.4M across 3,014 accounts.",
+   "answer": "The originated amount for self-employed accounts is $123.4M across 3,014 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "originated_amount",
@@ -635,7 +636,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The share of all portfolio accounts that are credit cards is 25.34%. This figure represents 3,721 accounts.",
+   "answer": "The share of all portfolio accounts that are credit cards is 25.34%, representing 3,721 accounts.",
    "query": {
     "function": "query_portfolio",
     "metric": "share_of_accounts_pct",
@@ -661,7 +662,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The default rate is 16.42% for Tier 2, 16.36% for Tier 3, and 15.55% for Tier 1. These figures represent 5,925, 3,588, and 5,172 accounts respectively.",
+   "answer": "The default rate is 16.42% for 5,925 accounts in Tier 2, 16.36% for 3,588 accounts in Tier 3, and 15.55% for 5,172 accounts in Tier 1.",
    "query": {
     "function": "query_portfolio",
     "metric": "default_rate_pct",
@@ -682,7 +683,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The average annual income for the 2,364 borrowers who defaulted is $70,105.",
+   "answer": "The average annual income for the 2,364 accounts that defaulted is $70,105.",
    "query": {
     "function": "query_portfolio",
     "metric": "avg_annual_income",
@@ -708,7 +709,7 @@
    "status": "answered",
    "written_by": "llm",
    "model": "gemini-3.1-flash-lite",
-   "answer": "The predicted probability of default for ACC200001 is 29.21% and the risk band is High.",
+   "answer": "The predicted probability of default for account ACC200001 is 29.21%, and the risk band is High.",
    "query": {
     "function": "get_account",
     "account_id": "ACC200001"
